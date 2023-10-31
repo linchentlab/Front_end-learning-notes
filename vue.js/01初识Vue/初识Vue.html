@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="root">{{ msg }}1</div>
+
+  <script src="../lib/vue.js" type="text/javascript"></script>
+  <script>
+      //阻止Vue在启动时生成生产提示
+    Vue.config.productionTip = false
+    //创建vue实例
+    const vm = new Vue({
+      el : '#root',
+      data : {
+        msg: 'Hello world'
+      }
+    })
+  </script>
+</body>
+</html>

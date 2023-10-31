@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2 v-pre>Vue很简单</h2>
+	<h2 v-pre>当前n的值是: {{ n }}</h2>
+	<button @click="n++">点我n+1</button>
+</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el : '#root',
+		data(){
+			return{
+				n : 1
+			}
+		}
+	})
+</script>
+</html>

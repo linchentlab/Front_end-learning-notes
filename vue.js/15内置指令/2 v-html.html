@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<div>你好，{{ name }}</div>
+	<!--v-text向其所在位置插入文本-->
+	<div v-html="str"></div>
+	<div v-html="str2"></div>
+</div>
+</body>
+<script type="text/javascript">
+	Vue.config.productionTip = false
+	new Vue({
+		el : '#root',
+		data(){
+			return {
+				name : 'Mars',
+				str : '<h3>你好</h3>',
+				str2 : '<a href ="https://www.baidu.com">资源</a>'
+			}
+		}
+	})
+</script>
+</html>

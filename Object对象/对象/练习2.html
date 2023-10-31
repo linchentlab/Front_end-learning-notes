@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 写一个 isEmpty(obj) 函数，当对象没有属性的时候返回 true，否则返回 false。 -->
+</head>
+<body>
+    <script>
+         let user = {
+            name : 'Mars',
+            age : '21',
+            sex : "男"
+        };
+        function isEmpty(){
+            for(let user in user){
+                // console.log(false)
+                return false
+            }
+            // console.log(true)
+            return true
+        }
+    </script>
+</body>
+</html>

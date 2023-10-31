@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name : 'Linter',
+            age : '21'
+        }
+        let clone = {} //声明一个新的空对象
+
+        for (let key in user ){
+            clone[key] = user[key]
+        }
+        clone.age = '18'
+
+        console.log('user.age:',user.age,'clone.age:',clone.age)
+    </script>
+</body>
+</html>

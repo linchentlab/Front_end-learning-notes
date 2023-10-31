@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<div>你好，{{ name }}</div>
+	<!--v-text向其所在位置插入文本-->
+	<div v-text="str"></div>
+</div>
+</body>
+<script type="text/javascript">
+	Vue.config.productionTip = false
+	new Vue({
+		el : '#root',
+		data(){
+			return {
+				name : 'Mars',
+				str : '你好'
+			}
+		}
+	})
+</script>
+</html>

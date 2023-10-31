@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 编写一个提示用户输入大于 100 的数字的循环。如果用户输入其他数值 —— 请他重新输入。
+
+循环一直在请求一个数字，直到用户输入了一个大于 100 的数字、取消输入或输入了一个空行为止。
+
+在这我们假设用户只会输入数字。在本题目中，不需要对非数值输入进行特殊处理。 -->
+    <script>
+        let num = prompt("请输入一个大于100的数")
+        do {
+            let num = prompt("请输入一个大于100的数")
+        } while(num<=100 && num)
+        //当num为null或空字符串时，while中的条件为false，那么while循环也会终止
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

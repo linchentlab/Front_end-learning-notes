@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //合并多个对象
+        let user = {
+            name : 'Linter'
+        }
+        let permissions1 = {
+            canView : true
+        }
+        let permissions2 = {
+            canEdit : false
+        }
+
+        Object.assign(user,permissions1,permissions2)
+        // Object.assign(user,{name : 'Mars'})
+        console.log(user)
+    </script>
+</body>
+</html>

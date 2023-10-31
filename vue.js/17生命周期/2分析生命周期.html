@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<h2>当前的n值是: {{ n }}</h2>
+		<button @click="add">点我n+1</button>
+	</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el : '#root',
+		data(){
+			return{
+				n : 1
+			}
+		},
+		methods : {
+			add(){
+				this.n++
+			}
+		},
+		beforeCreate(){
+			//此时的vm实例还未加载data，没有数据代理
+			console.log('beforeCreate')
+			// console.log(this)
+			// debugger	//断点
+		},
+		created(){
+			console.log('created()')
+			/*console.log(this)
+			debugger*/
+		},
+		beforeMount(){
+			console.log('beforeMount')
+			console.log(this)
+			// debugger
+		}
+	})
+</script>
+</html>

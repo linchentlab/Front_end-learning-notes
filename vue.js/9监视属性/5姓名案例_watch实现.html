@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    姓:<input type="text" v-model="firstName"><br><br>
+    名: <input type="text" v-model="lastName"><br><br>
+    姓名: <span>{{ fullName }}</span>
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el : '#root',
+      data(){
+        return{
+            firstName : '张',
+            lastName : '三',
+            fullName : '张-三'
+        }
+      },
+      watch : {
+          firstName(newValue){
+              setTimeout(() => {
+                  this.fullName = newValue + '-' + this.lastName
+              },5000)
+
+          },
+          lastName(newValue){
+              this.fullName = this.firstName+ '-' + newValue
+          }
+      }
+    })
+  </script>
+</body>
+</html>

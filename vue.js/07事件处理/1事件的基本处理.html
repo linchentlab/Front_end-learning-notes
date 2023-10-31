@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+        <h2>欢迎来到{{ name }}学习</h2>
+        <button v-on:click="showInfo">点我显示提示信息</button>
+        <button @click="showMsg($event,6)">点我显示提示信息</button>
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el : '#root',
+      data(){
+        return{
+          name : '湖南信息学院'
+        }
+      },
+      methods : {
+        showInfo(event){
+            console.log(event.target.innerText)
+            //console.log(this)   //此处的this是vm
+          // alert('同学你好')
+        },
+        showMsg(event,num){
+            console.log(event)
+            console.log(num)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

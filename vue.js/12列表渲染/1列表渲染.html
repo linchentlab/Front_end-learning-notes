@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+<!--    遍历对象-->
+    <h2>人员列表</h2>
+    <ul>
+        <li v-for="(p,index) in persons" :key="p.id">
+            {{ p.name }}-{{ p.age }}
+        </li>
+    </ul>
+<!--    遍历数组-->
+    <h2>汽车信息</h2>
+    <ul>
+        <li v-for="(value,key) of cars" :key="key">
+            {{ key }}-{{ value }}
+        </li>
+    </ul>
+<!--    遍历字符串-->
+    <h2>遍历字符串</h2>
+    <ul>
+        <li v-for="(char,index) of str" :key="index">
+            {{ char }}-{{ index }}
+        </li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el : '#root',
+        data(){
+            return{
+                persons : [
+                    {id : '001',name : '张三',age : '18'},
+                    {id : '002',name : '李四',age : '19'},
+                    {id : '003',name : '王五',age : '20'}
+                ],
+                cars : {
+                    name : '奥迪A8',
+                    price : '70w',
+                    color : '黑色'
+                },
+                str : 'Hello world'
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h2>学校名称:{{ name }}</h2>
+    <h2>学校地址:{{ address }}</h2>
+  </div>
+</body>
+<script type="text/javascript">
+  // Vue.config.productionTip = false
+  const vm = new Vue({
+    data(){
+      return{
+        name : '湖南信息学院',
+        address : '湖南省长沙市'
+      }
+    }
+  })
+  vm.$mount('#root')
+</script>
+</html>

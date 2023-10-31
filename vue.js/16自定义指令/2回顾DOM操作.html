@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.demo {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">点我创建一个输入框</button>
+	
+</body>
+<script type="text/javascript">
+	const btn = document.getElementById('btn')
+	btn.onclick = () => {
+		const input = document.createElement('input')
+		input.className = 'demo'
+		document.body.appendChild(input)
+		input.focus()
+	}
+</script>
+</html>

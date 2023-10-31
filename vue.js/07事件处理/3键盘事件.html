@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h2>欢迎来到{{ name }}学习</h2>
+    <input type="text" placeholder="按下回车提示输入" @keydown.ctrl="showInfo">
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false
+    Vue.config.keyCodes.huiche = 13
+    new Vue({
+      el : '#root',
+      data(){
+        return{
+          name : '湖南信息学院'
+        }
+      },
+      methods : {
+        showInfo(e){
+          // if(e.keyCode !== 13) return
+          console.log(e.target.value)   //打印输入的内容
+        } //设定为只有按下回车才会打印输入的内容
+      }
+    })
+  </script>
+</body>
+</html>

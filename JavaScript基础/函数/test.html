@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkAge(age) {
+            if (age > 18) {
+                return true;
+            } else {
+                return confirm('父母允许吗？');
+            }
+        }    
+        function checkAge1(age) {
+            if (age > 18) {
+                return true;
+            }
+            return confirm('父母允许吗？');
+        }  
+        checkAge()
+        checkAge1()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

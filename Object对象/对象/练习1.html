@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 按下面的要求写代码，一条对应一行代码：
+
+    创建一个空的对象 user。
+    为这个对象增加一个属性，键是 name，值是 John。
+    再增加一个属性，键是 surname，值是 Smith。
+    把键为 name 的属性的值改成 Pete。
+    删除这个对象中键为 name 的属性。 -->
+</head>
+<body>
+    <script>
+        let user = {};
+        user.name = "John"
+        user.surname = "Smith"
+        // console.log("1")
+        // for (let key in user) {
+        //     console.log(key,user[key])
+        // }
+        user.name = "Pete"
+        // console.log("2")
+        // for (let key in user) {
+        //     console.log(key,user[key])
+        // }
+        // console.log("3")
+        delete user.name
+        // for(let prop in user) {
+        //     console.log(prop)
+        // }
+    </script>
+</body>
+</html>

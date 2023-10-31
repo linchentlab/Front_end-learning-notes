@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .demo1 {
+            height: 50px;
+            background-color: blue;
+        }
+        .box1 {
+            padding: 5px;
+            background-color: pink;
+        }
+        .box2 {
+            padding: 5px;
+            background-color: red;
+        }
+        .list {
+            width: 200px;
+            height: 200px;
+            background-color: #968153;
+            overflow: auto; /*超出部分自动生成滚动条*/
+        }
+        li {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+  <div id="root">
+    <h2>欢迎来到{{ name }}</h2>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault" @click.stop.prevent="showInfo">点我显示提示信息</a>
+    <div class="demo1" @click="showInfo">
+        <button @click.stop="showInfo">点我展示信息</button>
+    </div>
+    <button @click="showInfo">点我展示信息</button>
+<!--    <div class="box1" @click="showMsg(1)">-->
+    <div class="box1" @click="showMsg">
+        div1
+        <div class="box2" @click="showMsg(2)">
+            div2
+        </div>
+    </div>
+    <div class="demo1" @click.self="showBtn">
+        <button @click="showInfo">点我提示信息</button>
+    </div>
+
+    <ul class="list" @wheel.passive="demo">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+      el : '#root',
+      data(){
+        return{
+          name : '湖南信息学院'
+        }
+      },
+      methods : {
+        showInfo(e){
+            e.preventDefault()      //阻止默认的点击事件执行。
+            alert("你好")
+        },
+        showMsg(e){
+            // console.log('showMsg被调用了')
+            console.log(e)
+        },
+        showBtn(e){
+            console.log(e.target)
+        },
+        demo(e){
+            for(let i=0;i<100000;i++) {
+                console.log('@')
+            }
+            console.log('累坏了')
+        }
+      }
+    })
+  </script>
+</body>
+</html>

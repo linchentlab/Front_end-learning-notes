@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- http://hmajax.itheima.net/api/login -->
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="请输入用户名" class="username">
+        <input type="password" placeholder="请输入密码" class="password">
+        <button type="submit" class="btn">登录</button>&nbsp;&nbsp;&nbsp;<button type="reset">重置</button>
+    </form>
+
+    <script>
+        document.querySelector('.btn').addEventListener('click', () => {
+            const username = document.querySelector('.username').value
+            const password = document.querySelector('.password').value
+
+            console.log(username,password)
+
+            if(username.length < 8){
+                alert('用户名必须大于8位')
+                return
+            }
+            if(password.length < 5){
+                alert('密码必须大于5位')
+                return
+            }
+
+            axios({
+                url : 'http://hmajax.itheima.net/api/login',
+                method : 'post',
+                data : {
+                    username,
+                    password
+                }
+            }).then(result => {
+                console.log(result)
+                console.log(result.data.message)
+                alert(result.data.message)
+            }).catch(error => {
+                console.log(error)
+                console.log(error.response.data.message)
+            })
+        })
+    </script>
+</body>
+</html>

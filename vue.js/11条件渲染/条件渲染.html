@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>当前的n值为{{ n }}</h2>
+    <button @click="n++">点击 n+1</button>
+
+<!--    使用v-show做条件渲染-->
+<!--    <h2 v-show="true">欢迎来到{{ name }}</h2>-->
+
+<!--    使用v-if做条件渲染-->
+<!--    <h2 v-if="false">欢迎来到{{ name }}</h2>-->
+
+<!--    <div v-if="n === 1">Angular</div>-->
+<!--    <div v-else-if="n === 1">React</div>-->
+<!--    <div v-else-if="n === 3">Vue</div>-->
+
+<!--    v-if和template的配合使用-->
+    <template v-if="n === 1">
+        <h2>你好</h2>
+        <h2>尚硅谷</h2>
+        <h2>北京</h2>
+    </template>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el : '#root',
+        data(){
+            return{
+                name : '湖南信息学院',
+                n : '0'
+            }
+        }
+    })
+</script>
+</html>

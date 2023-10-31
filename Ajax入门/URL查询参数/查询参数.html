@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> //引入axios库</script>
+</head>
+<body>
+    <p class="p1"></p>
+    <script>
+        axios({
+            url : 'http://hmajax.itheima.net/api/city',
+            params : {
+                pname : '湖南省'
+            }
+        }).then (result=> {
+            console.log(result)
+       5     // 嵌入到浏览器页面
+            document.querySelector('.p1').innerHTML = result.data.list.join('<br>')
+        })
+    </script>
+</body>
+</html>

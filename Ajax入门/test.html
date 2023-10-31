@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> //引入axios库</script>
+</head>
+<body>
+    <script>
+        // 获取远端图片
+    axios({
+        method:'get',
+        url:'https://mp-57a99ed8-270a-4a9e-85f5-7f12c2f80d39.cdn.bspapp.com/pic/Snipaste_2023-09-15_10-12-59.png',
+        responseType:'stream'
+    }).then(function(response) {
+        response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    });
+    </script>
+</body>
+</html>
