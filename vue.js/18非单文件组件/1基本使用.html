@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>{{ msg }}</h2>
+<!--    编写组件标签-->
+    <school></school>
+    <hr>
+    <student></student>
+    <hello></hello>
+</div>
+
+<div id="root2">
+    <hello></hello>
+</div>
+</body>
+<script type="text/javascript">
+
+    //创建一个school组件
+    const school = Vue.extend({
+        //控制组件相关内容
+        //不要el配置项，因为所有的组件都被一个vm管理
+        template : `
+            <div>
+              <h2>学校名称: {{ schoolName }}</h2>
+              <h2>学校地址: {{ address }}</h2>
+            </div>
+        `,
+        data(){
+            return{
+                schoolName : '湖南信息学院',
+                address : '湖南省长沙市'
+            }
+        }
+    })
+
+    //创建一个student组件
+    const student = Vue.extend({
+        template : `
+          <div>
+            <h2>学生姓名: {{ studentName }}</h2>
+            <h2>学生年龄: {{ age }}</h2>
+          </div>
+        `,
+        data(){
+            return{
+                studentName : 'Linter',
+                age : '21'
+            }
+        }
+    })
+
+    const hello = Vue.extend({
+        template : `
+            <div>
+                <h2>你好寄！{{ name }}</h2>
+            </div>
+        `
+    })
+    Vue.component('hello',hello)
+    //创建vm,注册组件（局部注册）
+    new Vue({
+        el : '#root',
+        data : {
+          msg : 'Hello'
+        },
+        components : {
+            school,
+            student
+        }
+    })
+</script>
+</html>

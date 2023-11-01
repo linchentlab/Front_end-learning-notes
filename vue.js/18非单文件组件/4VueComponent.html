@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <school></school>
+    </div>
+</body>
+<script type="text/javascript">
+    //创建一个school组件
+    const school = Vue.extend({
+        template : `
+            <div>
+              <h2>学校名称: {{ schoolName }}</h2>
+              <h2>学校地址: {{ address }}</h2>
+              <button @click="showName">点我提示学校名</button>
+            </div>
+        `,
+        data(){
+            return{
+                schoolName : '湖南信息学院',
+                address : '湖南省长沙市'
+            }
+        },
+        methods : {
+            showName(){
+                // alert(this.schoolName)
+                console.log(this)
+            }
+        }
+    })
+
+    const hello = Vue.extend({
+        template : `
+            <h2>{{ msg }}</h2>
+        `,
+        data(){
+            return{
+                msg : '你好啊'
+            }
+        }
+    })
+
+    console.log('1',school)
+    console.log('2',hello)
+    // console.log(school === hello)
+
+
+    //创建Vm
+    new Vue({
+        el : '#root',
+        components : {
+            school
+        }
+    })
+</script>
+</html>

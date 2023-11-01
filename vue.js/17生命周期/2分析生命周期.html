@@ -9,10 +9,11 @@
 	<div id="root">
 		<h2>当前的n值是: {{ n }}</h2>
 		<button @click="add">点我n+1</button>
+		<button @click="destroyVM">点我销毁vm</button>
 	</div>
 </body>
 <script type="text/javascript">
-	new Vue({
+	const vm = new Vue({
 		el : '#root',
 		data(){
 			return{
@@ -22,8 +23,14 @@
 		methods : {
 			add(){
 				this.n++
+				console.log('add()')
+			},
+			destroyVM(){
+				console.log('destroy')
+				this.$destroy()
 			}
 		},
+
 		beforeCreate(){
 			//此时的vm实例还未加载data，没有数据代理
 			console.log('beforeCreate')
@@ -37,8 +44,32 @@
 		},
 		beforeMount(){
 			console.log('beforeMount')
-			console.log(this)
-			// debugger
+			/*console.log(this)
+			debugger*/
+		},
+		mounted(){
+			console.log('Mounted')
+			/*console.log(this)
+			document.querySelector('h2').innerText = "success"
+			debugger*/
+		},
+		beforeUpdate(){
+			console.log('beforeUpdate')
+			/*console.log(this.n)
+			debugger*/
+		},
+		updated(){
+			console.log('update')
+			/*console.log(this.n)
+			debugger*/
+		},
+		beforeDestroy(){
+			console.log('beforeDestroy')
+			console.log(this.n)
+			this.add()
+		},
+		destroy(){
+			console.log('destroy')
 		}
 	})
 </script>

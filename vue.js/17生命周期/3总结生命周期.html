@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2 :style="{opacity}">欢迎学习Vue</h2>
+	<button @click="opacity = 1">透明度设置为1</button>
+	<button @click="stop">点我停止变换</button>
+
+</div>
+</body>
+<script type="text/javascript">
+	const vm = new Vue({
+		el : '#root',
+		data : {
+			opacity : 1
+		},
+		methods : {
+			stop(){
+				// clearInterval(this.id)
+				this.$destroy()
+			}
+		},
+
+		//Vue完成模板解析并把真实DOM放入页面后调用
+		mounted(){
+			//挂载
+			console.log('mounted')
+			this.id = setInterval(() => {
+				console.log('setInterval')
+				vm.opacity -= 0.01
+				if(vm.opacity === 0){
+					vm.opacity = 1
+				}
+			},16)
+		},
+		beforeDestroy() {
+			console.log('Vm即将被销毁')
+			clearInterval(this.id)
+		}
+	})
+</script>
+</html>
