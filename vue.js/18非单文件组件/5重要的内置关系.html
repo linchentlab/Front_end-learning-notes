@@ -1,0 +1,63 @@
+<!--_proto_属性已失效-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+/*
+    function Demo(){
+        this.a = 1
+        this.b = 2
+    }
+
+    const d = new Demo()
+
+    console.log(Demo.prototype)     //显示原型属性
+    console.log(d._proto_)          //隐式原型属性
+
+    //通过显示原型属性操作原型对象，追加一个x属性，值为99
+    Demo.prototype.x = 99
+
+    console.log(d._proto_.x)
+*/
+    Vue.config.productionTip = false
+
+    const school = Vue.extend({
+        template : `
+                <div>
+                  <h2>学校名称: {{ schoolName }}</h2>
+                  <h2>学校地址: {{ address }}</h2>
+                  <button @click="showName">点我提示学校名</button>
+                </div>
+            `,
+        data(){
+            return{
+                schoolName : '湖南信息学院',
+                address : '湖南省长沙市'
+            }
+        },
+        methods : {
+            showName(){
+                // alert(this.schoolName)
+                console.log(this)
+            }
+        }
+    })
+
+    //创建vm
+    new Vue({
+        el : '#root',
+        data() {
+            return{
+                msg : 'Hello'
+            }
+        }
+    })
+</script>
+</html>
