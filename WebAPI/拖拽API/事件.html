@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽事件</title>
+    <link rel="stylesheet" href="./Css/T1.css">
+</head>
+<body>
+    <div class="div1">拖拽区域</div>
+    <div class="div2" draggable="true">拖拽元素</div>   
+    <input type="text">
+</body>
+<script>
+    // 拿到被拖拽的元素
+    const div1 = document.querySelector('.div1');
+    const div2 = document.querySelector('.div2');
+    const input = document.querySelector('input');
+
+    //监听拖拽事件
+    div2.addEventListener('dragstsrt', ()=>console.log("开始拖拽"))
+    div2.addEventListener('drag', ()=>console.log("拖拽中"))
+    div2.addEventListener('dragend', ()=>console.log("拖拽结束"))
+
+    //监听拖拽区域的事件
+    div1.addEventListener('dragover', (e)=>{
+        console.log("拖拽元素进入目标区域")
+    })
+    div1.addEventListener('dragover',(e)=>{
+        e.preventDefault();     // 阻止默认行为
+        console.log("拖拽元素在目标区域中移动")
+    })
+    div1.addEventListener('dragleave',(e)=>{
+        console.log("拖拽元素离开目标区域")
+    })
+    div1.addEventListener('drop',(e)=>{
+        console.log("拖拽元素在目标区域中释放")
+    })
+
+    //取消输入框的默认行为
+    input.addEventListener('dragover',function(e){
+        e.preventDefault();
+    })
+</script>
+</html>

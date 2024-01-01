@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Css/T1.css">
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2" draggable="true">拖拽元素</div>
+</body>
+<script>
+    //获取dom元素
+    const dropContent = document.querySelector('.div1');
+    const dragBox = document.querySelector('.div2');
+
+    dropContent.addEventListener('dragstart', function (e) {
+        // console.log(e.dataTransfer)
+        e.dataTransfer.setData('text/plain', 'Hello')
+        e.dataTransfer.setData('text/html', '<p>我是段落标签</p>')
+    })
+    dropContent.addEventListener('dragover', function (e) {
+        e.preventDefault()
+    })
+    dropContent.addEventListener('drop', function (e) {
+        //将拖拽元素添加到目标元素中
+        dropContent.appendChild(dragBox)
+        
+        e.preventDefault()
+        const data = e.dataTransfer.getData('text/plain')
+        const dataHtml = e.dataTransfer.getData('text/html')
+        dropContent.innerHTML = dataHtml
+        console.log(data)
+    })
+</script>
+
+</html>

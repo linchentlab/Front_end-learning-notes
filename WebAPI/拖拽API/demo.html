@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Css/T1.css">
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2" draggable="true">拖拽元素</div>   
+</body>
+<script>
+    //获取dom元素
+    const dropContent = document.querySelector('.div1');
+    const dragBox = document.querySelector('.div2');
+
+    //定义拖拽事件
+    dropContent.addEventListener('dragover',(e)=>e.preventDefault())
+    dropContent.addEventListener('drop',(e)=>{
+        //将拖拽元素添加到目标元素中
+        dropContent.appendChild(dragBox)
+    })
+</script>
+</html>

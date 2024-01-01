@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+.div1{
+    width: 200px;
+    height: 200px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    float: left;
+    margin-right: 20px;
+}
+.div2{
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    cursor: move;
+    float: left;
+}
